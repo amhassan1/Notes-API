@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex";
     export default {
         data() {
             return {
@@ -24,9 +25,7 @@
             };
         },
         computed: {
-            catagories() {
-                return this.$store.getters.getCatagories;
-            },
+            ...mapGetters({ catagories: "getCatagories" }),
         },
         methods: {
             showCatagories() {

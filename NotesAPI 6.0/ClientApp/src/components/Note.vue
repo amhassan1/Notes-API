@@ -148,6 +148,7 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex";
     export default {
         props: {
             note: Object,
@@ -223,20 +224,14 @@
             },
         },
         computed: {
+            ...mapGetters({
+                user: "getUser",
+                catagories: "getCatagories",
+                fontColors: "getNoteFontColors",
+                backgroundColors: "getNoteBackgroundColors",
+            }),
             edited() {
                 return this.note.text !== this.initText;
-            },
-            user() {
-                return this.$store.getters.getUser;
-            },
-            catagories() {
-                return this.$store.getters.getCatagories;
-            },
-            fontColors() {
-                return this.$store.getters.getNoteFontColors;
-            },
-            backgroundColors() {
-                return this.$store.getters.getNoteBackgroundColors;
             },
         },
         mounted() {

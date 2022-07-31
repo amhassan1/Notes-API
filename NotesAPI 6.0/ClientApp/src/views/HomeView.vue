@@ -9,15 +9,11 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex";
     export default {
         name: "HomeView",
         computed: {
-            user() {
-                return this.$store.getters.getUser;
-            },
-            loggedIn() {
-                return this.$store.getters.getStatus;
-            },
+            ...mapGetters({ user: "getUser", loggedIn: "getStatus" }),
         },
     };
 </script>

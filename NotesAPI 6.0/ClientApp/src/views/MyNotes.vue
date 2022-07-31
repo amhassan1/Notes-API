@@ -14,6 +14,7 @@
     import NotesPage from "@/components/NotesPage";
     import NoteSort from "@/components/NoteSort";
     import { API } from "@/uri";
+    import { mapGetters } from "vuex";
 
     export default {
         components: {
@@ -22,12 +23,7 @@
             NoteSort,
         },
         computed: {
-            getUser() {
-                return this.$store.getters.getUser;
-            },
-            loggedIn() {
-                return this.$store.getters.getStatus;
-            },
+            ...mapGetters({ getUser: "getUser", loggedIn: "getStatus" }),
         },
         async created() {
             const user = await this.getUser;

@@ -87,6 +87,7 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex";
     export default {
         data() {
             return {
@@ -115,18 +116,12 @@
             },
         },
         computed: {
-            catagories() {
-                return this.$store.getters.getCatagories;
-            },
-            user() {
-                return this.$store.getters.getUser;
-            },
-            fontColors() {
-                return this.$store.getters.getNoteFontColors;
-            },
-            backgroundColors() {
-                return this.$store.getters.getNoteBackgroundColors;
-            },
+            ...mapGetters({
+                user: "getUser",
+                catagories: "getCatagories",
+                fontColors: "getNoteFontColors",
+                backgroundColors: "getNoteBackgroundColors",
+            }),
         },
     };
 </script>

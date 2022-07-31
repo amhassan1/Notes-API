@@ -41,6 +41,7 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex";
     export default {
         methods: {
             login() {
@@ -63,12 +64,7 @@
             },
         },
         computed: {
-            loggedIn() {
-                return this.$store.getters.getStatus;
-            },
-            user() {
-                return this.$store.getters.getUser;
-            },
+            ...mapGetters({ loggedIn: "getStatus", user: "getUser" }),
         },
     };
 </script>
