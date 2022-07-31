@@ -67,7 +67,7 @@
                 <template v-slot:activator="{ props }">
                     <button class="button" v-bind="props">...</button>
                 </template>
-                <v-card title="Edit" width="300">
+                <v-card title="Edit" max-width="300">
                     <v-card-content>
                         <v-select
                             :items="catagories"
