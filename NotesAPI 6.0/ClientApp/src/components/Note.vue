@@ -135,7 +135,7 @@
             </v-menu>
         </div>
         <v-textarea
-            class="textareas edu"
+            class="edu"
             v-model="note.text"
             :style="{ color: note.color }"
             auto-grow
@@ -258,6 +258,7 @@
         box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
         padding: 20px;
         margin: 10px;
+        transition: background-color 200ms ease;
     }
     .catagory {
         font-size: x-small;
