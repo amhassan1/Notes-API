@@ -19,7 +19,7 @@
                     variant="underlined"
                     :items="catagories"
                     :style="{ width: '100%' }"
-                    label="Catagory"
+                    label="Category"
                     hide-details
                 >
                 </v-select>

@@ -72,7 +72,7 @@
                         <v-select
                             :items="catagories"
                             variant="plain"
-                            label="category"
+                            label="Category"
                             v-model="note.catagory"
                             hide-details
                         ></v-select>
@@ -216,6 +216,7 @@
                     } else {
                         currentLineLength = 0;
                     }
+
                     if (currentLineLength > longestLineLength) {
                         longestLineLength = currentLineLength;
                     }
