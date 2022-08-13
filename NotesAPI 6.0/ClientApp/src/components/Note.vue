@@ -12,7 +12,7 @@
                 </button>
                 <button class="button saveBtn" @click="updateNote" v-show="edited">
                     <v-icon size="small">mdi-content-save</v-icon>
-                    <v-tooltip activator="parent">Update</v-tooltip>
+                    <v-tooltip activator="parent">Save</v-tooltip>
                 </button>
             </div>
 
@@ -126,12 +126,12 @@
             updateNote() {
                 if (confirm("Are you sure you want to update note?")) {
                     const updtNote = {
-                        userId: this.user.id,
-                        text: this.note.text,
-                        color: this.note.color,
-                        catagory: this.note.catagory,
-                        bg_color: this.note.bg_color,
                         id: this.note.id,
+                        text: this.note.text,
+                        catagory: this.note.catagory,
+                        color: this.note.color,
+                        bg_color: this.note.bg_color,
+                        userId: this.note.userId,
                     };
 
                     this.initText = this.note.text;
@@ -207,7 +207,7 @@
         justify-content: space-between;
         flex-direction: column;
         min-width: 35ch;
-        min-height: 100px;
+        min-height: 250px;
         text-align: left;
         border-radius: 10px;
         box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
@@ -246,7 +246,7 @@
     }
 
     .saveBtn {
-        color: blue;
+        color: rgb(88, 88, 255);
     }
 
     button:hover {

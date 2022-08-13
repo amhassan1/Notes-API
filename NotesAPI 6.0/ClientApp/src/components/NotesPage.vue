@@ -1,22 +1,19 @@
 <template>
     <div class="notes">
         <transition-group name="slide">
-            <Note v-for="note in notesToShow" :note="note" :key="note.id"></Note
-        ></transition-group>
-        <h3 v-if="empty">No Notes</h3>
+            <Note v-for="note in notesToShow" :note="note" :key="note.id"></Note>
+            <NewNote :key="-1"></NewNote>
+        </transition-group>
     </div>
 </template>
 
 <script>
     import Note from "@/components/Note";
+    import NewNote from "./NewNote.vue";
     export default {
         components: {
             Note,
-        },
-        data() {
-            return {
-                empty: false,
-            };
+            NewNote,
         },
         computed: {
             notes() {
@@ -31,7 +28,6 @@
                 if (show.length > 0) {
                     notes = notes.filter((note) => show.includes(note.catagory));
                 }
-                this.empty = notes.length > 0 ? false : true;
                 return notes;
             },
         },
@@ -58,7 +54,7 @@
     } */
 
     .slide-enter-active {
-        animation: rollIn;
+        animation: fadeInLeft;
         animation-duration: 500ms;
     }
 

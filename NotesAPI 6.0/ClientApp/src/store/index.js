@@ -98,7 +98,7 @@ export default createStore({
                 body: JSON.stringify(note),
             });
 
-            const data = await res.json();
+            const data = await fetch(`${API}/notes/${note.id}`);
             commit("updateNote", data);
         },
         addUser({ commit }, user) {
