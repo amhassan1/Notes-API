@@ -85,7 +85,7 @@
                     return;
                 }
 
-                const newNote = this.note;
+                const newNote = { ...this.note };
                 this.$store.dispatch("addNote", newNote);
 
                 this.note.text = "";
