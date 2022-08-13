@@ -28,7 +28,7 @@
             const user = await this.getUser;
             //const res = await fetch(`${API}/notes?username=${user.username}`);
             const res = localStorage.getItem("notes");
-            const data = JSON.parse(res);
+            const data = res ? JSON.parse(res) : [];
             this.$store.dispatch("initNotes", data);
         },
     };
