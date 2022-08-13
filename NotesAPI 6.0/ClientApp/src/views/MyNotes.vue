@@ -1,12 +1,11 @@
 <template>
-    <div class="myNotes" v-if="loggedIn">
+    <div class="myNotes">
         <div class="controls">
             <note-sort></note-sort>
             <notes-header></notes-header>
         </div>
         <notes-page></notes-page>
     </div>
-    <div class="log" v-else>Please Log In to See Your Notes</div>
 </template>
 
 <script>
@@ -27,8 +26,9 @@
         },
         async created() {
             const user = await this.getUser;
-            const res = await fetch(`${API}/notes?username=${user.username}`);
-            const data = await res.json();
+            //const res = await fetch(`${API}/notes?username=${user.username}`);
+            const res = localStorage.getItem("notes");
+            const data = JSON.parse(res);
             this.$store.dispatch("initNotes", data);
         },
     };

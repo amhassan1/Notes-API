@@ -81,11 +81,11 @@
         methods: {
             addNote() {
                 if (this.note.text === "") {
-                    alert("Add note text");
+                    alert("Add Text");
                     return;
                 }
 
-                const newNote = { userId: this.user.id, ...this.note };
+                const newNote = this.note;
                 this.$store.dispatch("addNote", newNote);
 
                 this.note.text = "";

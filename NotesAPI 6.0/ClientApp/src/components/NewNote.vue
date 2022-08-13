@@ -16,7 +16,6 @@
                     catagory: this.catagory.length > 0 ? this.catagory[0] : "",
                     color: "#000000",
                     bg_color: "#E9FF70",
-                    userId: this.user.id,
                 };
                 this.$store.dispatch("addNote", newNote);
             },

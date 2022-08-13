@@ -20,7 +20,7 @@
                     >
                 </li>
 
-                <li v-if="loggedIn"><router-link :to="'/user/' + user.username + '/notes'">My Notes</router-link></li>
+                <li><router-link :to="'/notes'">My Notes</router-link></li>
 
                 <li><router-link to="/about">About</router-link></li>
             </ul>
