@@ -85,8 +85,9 @@
                     return;
                 }
 
-                const newNote = { ...this.note };
+                const newNote = { id: this.id, ...this.note };
                 this.$store.dispatch("addNote", newNote);
+                this.$store.commit("setId", this.id + 1);
 
                 this.note.text = "";
                 this.note.catagory = "";
@@ -100,6 +101,7 @@
                 catagories: "getCatagories",
                 fontColors: "getNoteFontColors",
                 backgroundColors: "getNoteBackgroundColors",
+                id: "getId",
             }),
         },
     };

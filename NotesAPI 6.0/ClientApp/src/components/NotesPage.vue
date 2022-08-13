@@ -1,7 +1,7 @@
 <template>
     <div class="notes">
         <transition-group name="slide">
-            <Note v-for="(note, i) in notesToShow" :note="note" :key="i"></Note>
+            <Note v-for="note in notesToShow" :note="note" :key="note.id"></Note>
             <NewNote :key="-1"></NewNote>
         </transition-group>
     </div>

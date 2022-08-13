@@ -3,6 +3,7 @@ import { API } from "@/uri";
 
 export default createStore({
     state: {
+        id: 0,
         notes: [],
         catagories: ["Important", "Urgent", "School", "Family", "Friends", "House"],
         showCatagories: [],
@@ -17,6 +18,9 @@ export default createStore({
         noteBackgroundColors: ["#E9FF70", "#FFD670", "#FF9770", "#FF70A6", "#70D6FF"],
     },
     getters: {
+        getId(state) {
+            return state.id;
+        },
         getNotes(state) {
             return state.notes;
         },
@@ -40,6 +44,9 @@ export default createStore({
         },
     },
     mutations: {
+        setId(state, id) {
+            state.id = id;
+        },
         setNotes(state, notes) {
             state.notes = notes;
         },
@@ -50,7 +57,7 @@ export default createStore({
             state.notes = state.notes.filter((note) => id !== note.id);
         },
         updateNote(state, note) {
-            state.notes = state.notes.map((n) => (n.id === note.id ? { ...note, text: note.text } : n));
+            state.notes = state.notes.map((n) => (n.id === note.id ? note : n));
         },
         setShowCatagories(state, catagories) {
             state.showCatagories = catagories;
@@ -70,31 +77,41 @@ export default createStore({
         async addNote({ commit }, note) {
             let notesJson = localStorage.getItem("notes");
             let notes = notesJson ? JSON.parse(notesJson) : [];
+
             notes.push(note);
+
             localStorage.setItem("notes", JSON.stringify(notes));
-            commit("setNotes", notes);
+
+            commit("addNote", note);
         },
         async deleteNote({ commit }, id) {
-            const res = await fetch(`${API}/notes/${id}`, {
-                method: "DELETE",
-            });
-            if (res.status == 204) {
-                commit("deleteNote", id);
-            } else {
-                alert("Error deleting note");
-            }
+            let notesJson = localStorage.getItem("notes");
+            let notes = JSON.parse(notesJson);
+
+            notes = notes.filter((note) => id !== note.id);
+
+            localStorage.setItem("notes", JSON.stringify(notes));
+
+            commit("deleteNote", id);
         },
         async updateNote({ commit }, note) {
-            const res = await fetch(`${API}/notes/${note.id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(note),
-            });
+            // const res = await fetch(`${API}/notes/${note.id}`, {
+            //     method: "PUT",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify(note),
+            // });
 
-            const data = await fetch(`${API}/notes/${note.id}`);
-            commit("updateNote", data);
+            // const data = await fetch(`${API}/notes/${note.id}`);
+            let notesJson = localStorage.getItem("notes");
+            let notes = JSON.parse(notesJson);
+
+            notes = notes.map((n) => (n.id === note.id ? note : n));
+
+            localStorage.setItem("notes", JSON.stringify(notes));
+
+            commit("updateNote", note);
         },
         addUser({ commit }, user) {
             commit("setUser", user);

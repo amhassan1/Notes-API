@@ -25,10 +25,11 @@
             ...mapGetters({ getUser: "getUser", loggedIn: "getStatus" }),
         },
         async created() {
-            const user = await this.getUser;
-            //const res = await fetch(`${API}/notes?username=${user.username}`);
             const res = localStorage.getItem("notes");
-            const data = res ? JSON.parse(res) : [];
+            let data = res ? JSON.parse(res) : [];
+            let id = data.length > 0 ? data[data.length - 1].id + 1 : 0;
+
+            this.$store.commit("setId", id);
             this.$store.dispatch("initNotes", data);
         },
     };

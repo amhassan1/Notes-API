@@ -12,16 +12,18 @@
         methods: {
             addNote() {
                 const newNote = {
+                    id: this.id,
                     text: "¯\\_(ツ)_/¯",
                     catagory: this.catagory.length > 0 ? this.catagory[0] : "",
                     color: "#000000",
                     bg_color: "#E9FF70",
                 };
                 this.$store.dispatch("addNote", newNote);
+                this.$store.commit("setId", this.id + 1);
             },
         },
         computed: {
-            ...mapGetters({ user: "getUser", catagory: "getShow" }),
+            ...mapGetters({ user: "getUser", catagory: "getShow", id: "getId" }),
         },
     };
 </script>

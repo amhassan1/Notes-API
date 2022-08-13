@@ -118,9 +118,8 @@
         },
         methods: {
             delNote() {
-                const id = this.note.id;
                 if (confirm("Are you sure you want to delete note?")) {
-                    this.$store.dispatch("deleteNote", id);
+                    this.$store.dispatch("deleteNote", this.note.id);
                 }
             },
             updateNote() {
@@ -131,7 +130,6 @@
                         catagory: this.note.catagory,
                         color: this.note.color,
                         bg_color: this.note.bg_color,
-                        userId: this.note.userId,
                     };
 
                     this.initText = this.note.text;
@@ -140,7 +138,7 @@
                     this.initBackgroundColor = this.note.bg_color;
 
                     if (updtNote.text === "") {
-                        this.$store.dispatch("deleteNote", updtNote.id);
+                        this.$store.dispatch("deleteNote", this.note.id);
                     } else {
                         this.$store.dispatch("updateNote", updtNote);
                         this.adjustWidth();
