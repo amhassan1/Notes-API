@@ -2,7 +2,7 @@
     <div class="about">
         <h1>About</h1>
         <h2>By Abdulaziz Hassan</h2>
-        <span>Version 0.8</span>
+        <span>Version 0.1.5</span>
     </div>
 </template>
 
