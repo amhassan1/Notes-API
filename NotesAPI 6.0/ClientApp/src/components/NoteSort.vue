@@ -5,11 +5,12 @@
                 label="Filter By"
                 multiple
                 :items="catagories"
-                v-model="show"
+                v-model="filterList"
                 chips
                 variant="outlined"
                 hide-details
                 @update:model-value="showCatagories"
+                clearable
             >
             </v-select>
         </div>
@@ -21,7 +22,7 @@
     export default {
         data() {
             return {
-                show: [],
+                filterList: [],
             };
         },
         computed: {
@@ -29,7 +30,7 @@
         },
         methods: {
             showCatagories() {
-                this.$store.commit("setShowCatagories", this.show);
+                this.$store.commit("setShowCatagories", this.filterList);
             },
         },
     };
