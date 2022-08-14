@@ -26,37 +26,11 @@
             </li>
             <li class="form-list-item">
                 <label>Font Color</label>
-                <v-radio-group v-model="note.color" inline hide-details>
-                    <v-radio v-for="color in fontColors" :value="color" :color="color"
-                        ><template v-slot:label>
-                            <div
-                                :style="{
-                                    minWidth: 45 + 'px',
-                                    minHeight: 18 + 'px',
-                                    backgroundColor: color,
-                                    borderRadius: 3 + 'px',
-                                }"
-                            ></div>
-                        </template>
-                    </v-radio>
-                </v-radio-group>
+                <color-picker v-model="note.color" :colors="fontColors"></color-picker>
             </li>
             <li class="form-list-item">
                 <label>Note Color</label>
-                <v-radio-group v-model="note.bg_color" inline hide-details>
-                    <v-radio v-for="color in backgroundColors" :value="color" :color="color"
-                        ><template v-slot:label>
-                            <div
-                                :style="{
-                                    minWidth: 45 + 'px',
-                                    minHeight: 18 + 'px',
-                                    backgroundColor: color,
-                                    borderRadius: 3 + 'px',
-                                }"
-                            ></div>
-                        </template>
-                    </v-radio>
-                </v-radio-group>
+                <color-picker v-model="note.bg_color" :colors="backgroundColors"></color-picker>
             </li>
             <li class="form-list-item">
                 <button @click="addNote" id="add"><v-icon>mdi-plus</v-icon>Add Note</button>
@@ -67,7 +41,11 @@
 
 <script>
     import { mapGetters } from "vuex";
+    import ColorPicker from "./ColorPicker.vue";
     export default {
+        components: {
+            ColorPicker,
+        },
         data() {
             return {
                 note: {

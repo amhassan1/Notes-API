@@ -14,7 +14,7 @@ export default createStore({
         },
         loggedIn: false,
         noteFontColors: ["#000000", "#FF0000", "#00FF00", "#0000FF", "#663611", "#140585"],
-        noteBackgroundColors: ["#E9FF70", "#FFD670", "#FF9770", "#FF70A6", "#70D6FF"],
+        noteBackgroundColors: ["#EEEEEE", "#E9FF70", "#FFD670", "#FF9770", "#FF70A6", "#70D6FF"],
     },
     getters: {
         getNotes(state) {

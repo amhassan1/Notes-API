@@ -15,7 +15,7 @@
                     text: "¯\\_(ツ)_/¯",
                     catagory: this.catagory.length > 0 ? this.catagory[0] : "",
                     color: "#000000",
-                    bg_color: "#E9FF70",
+                    bg_color: "#EEEEEE",
                     userId: this.user.id,
                 };
                 this.$store.dispatch("addNote", newNote);
@@ -39,6 +39,7 @@
         box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
         padding: 20px;
         margin: 10px;
+        background-color: #eeeeee;
     }
 
     .btn {
