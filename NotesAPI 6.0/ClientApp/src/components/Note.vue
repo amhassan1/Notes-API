@@ -33,37 +33,11 @@
 
                         <v-divider></v-divider>
 
-                        <v-radio-group v-model="note.color" inline hide-details>
-                            <v-radio v-for="color in fontColors" :value="color" :color="color"
-                                ><template v-slot:label>
-                                    <div
-                                        :style="{
-                                            minWidth: 45 + 'px',
-                                            minHeight: 18 + 'px',
-                                            backgroundColor: color,
-                                            borderRadius: 3 + 'px',
-                                        }"
-                                    ></div>
-                                </template>
-                            </v-radio>
-                        </v-radio-group>
+                        <color-picker v-model="note.color" :colors="fontColors"></color-picker>
 
                         <v-divider></v-divider>
 
-                        <v-radio-group v-model="note.bg_color" inline hide-details>
-                            <v-radio v-for="color in backgroundColors" :value="color" :color="color"
-                                ><template v-slot:label>
-                                    <div
-                                        :style="{
-                                            minWidth: 45 + 'px',
-                                            minHeight: 18 + 'px',
-                                            backgroundColor: color,
-                                            borderRadius: 3 + 'px',
-                                        }"
-                                    ></div>
-                                </template>
-                            </v-radio>
-                        </v-radio-group>
+                        <color-picker v-model="note.bg_color" :colors="backgroundColors"></color-picker>
                     </v-card-content>
 
                     <v-card-actions>
@@ -103,7 +77,11 @@
 
 <script>
     import { mapGetters } from "vuex";
+    import ColorPicker from "./ColorPicker.vue";
     export default {
+        components: {
+            ColorPicker,
+        },
         props: {
             note: Object,
         },
@@ -244,7 +222,7 @@
     }
 
     .saveBtn {
-        color: rgb(88, 88, 255);
+        color: rgb(101, 101, 255);
     }
 
     button:hover {
