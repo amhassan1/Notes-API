@@ -89,17 +89,9 @@ export default createStore({
             localStorage.setItem("notes", JSON.stringify(notes));
 
             commit("deleteNote", id);
+            commit("setId", notes.length > 0 ? notes[notes.length - 1].id + 1 : 0);
         },
         async updateNote({ commit }, note) {
-            // const res = await fetch(`${API}/notes/${note.id}`, {
-            //     method: "PUT",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify(note),
-            // });
-
-            // const data = await fetch(`${API}/notes/${note.id}`);
             let notesJson = localStorage.getItem("notes");
             let notes = JSON.parse(notesJson);
 
