@@ -50,7 +50,7 @@ export default createStore({
             state.notes = state.notes.filter((note) => id !== note.id);
         },
         updateNote(state, note) {
-            state.notes = state.notes.map((n) => (n.id === note.id ? { ...note, text: note.text } : n));
+            state.notes = state.notes.map((n) => (n.id === note.id ? note : n));
         },
         setShowCatagories(state, catagories) {
             state.showCatagories = catagories;
