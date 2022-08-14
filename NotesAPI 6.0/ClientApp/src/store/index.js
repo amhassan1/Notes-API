@@ -13,7 +13,6 @@ export default createStore({
             firstName: "",
             lastName: "",
         },
-        loggedIn: false,
         noteFontColors: ["#000000", "#FF0000", "#00FF00", "#0000FF", "#663611", "#140585"],
         noteBackgroundColors: ["#E9FF70", "#FFD670", "#FF9770", "#FF70A6", "#70D6FF"],
     },
@@ -32,9 +31,6 @@ export default createStore({
         },
         getUser(state) {
             return state.user;
-        },
-        getStatus(state) {
-            return state.loggedIn;
         },
         getNoteFontColors(state) {
             return state.noteFontColors;

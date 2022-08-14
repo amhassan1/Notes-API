@@ -26,16 +26,7 @@
             </ul>
         </div>
         <div class="nav-right">
-            <ul>
-                <li v-if="!loggedIn"><v-btn variant="outlined" rounded="lg" @click="login">Log in</v-btn></li>
-                <li v-if="!loggedIn">
-                    <v-btn variant="flat" rounded="lg" color="primary" @click="signup">Sign Up</v-btn>
-                </li>
-                <li v-if="loggedIn">{{ user.firstName + " " + user.lastName }}</li>
-                <li v-if="loggedIn">
-                    <v-btn variant="flat" rounded="lg" color="primary" @click="signout">Sign Out</v-btn>
-                </li>
-            </ul>
+            <ul></ul>
         </div>
     </div>
 </template>
@@ -43,28 +34,8 @@
 <script>
     import { mapGetters } from "vuex";
     export default {
-        methods: {
-            login() {
-                this.$router.push("/login");
-            },
-            signup() {
-                this.$router.push("/signup");
-            },
-            signout() {
-                localStorage.removeItem("user");
-                let user = {
-                    id: 0,
-                    username: "guest",
-                    firstName: "",
-                    lastName: "",
-                };
-                this.$store.commit("clearNotes");
-                this.$store.commit("setUser", user);
-                this.$router.push("/login");
-            },
-        },
         computed: {
-            ...mapGetters({ loggedIn: "getStatus", user: "getUser" }),
+            ...mapGetters({ user: "getUser" }),
         },
     };
 </script>

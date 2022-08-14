@@ -22,7 +22,7 @@
             NoteSort,
         },
         computed: {
-            ...mapGetters({ getUser: "getUser", loggedIn: "getStatus" }),
+            ...mapGetters({ getUser: "getUser" }),
         },
         async created() {
             const res = localStorage.getItem("notes");

@@ -2,9 +2,8 @@
     <div class="home arima">
         <h1>Notes</h1>
         <h2 class="text-align-center">Welcome {{ user.firstName }} {{ user.lastName }}</h2>
-        <h3 v-if="loggedIn" class="text-align-center">Create Notes Quickly and Easily</h3>
-        <h4 v-if="loggedIn" class="text-align-center">Go to My Notes</h4>
-        <h2 v-else class="text-align-center">Sign In to access your Notes</h2>
+        <h3 class="text-align-center">Create Notes Quickly and Easily</h3>
+        <h4 class="text-align-center">Go to My Notes</h4>
     </div>
 </template>
 
@@ -13,7 +12,7 @@
     export default {
         name: "HomeView",
         computed: {
-            ...mapGetters({ user: "getUser", loggedIn: "getStatus" }),
+            ...mapGetters({ user: "getUser" }),
         },
     };
 </script>
