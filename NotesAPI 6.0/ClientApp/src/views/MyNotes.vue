@@ -43,6 +43,14 @@
         column-gap: 40px;
     }
 
+    .log {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        font-weight: bold;
+    }
+
     .sticky {
         position: sticky;
         top: 30px;
