@@ -1,8 +1,10 @@
 <template>
     <div class="myNotes">
         <div class="controls">
-            <note-sort></note-sort>
-            <notes-header></notes-header>
+            <div class="sticky">
+                <note-sort></note-sort>
+                <notes-header></notes-header>
+            </div>
         </div>
         <notes-page></notes-page>
     </div>
@@ -42,11 +44,8 @@
         column-gap: 40px;
     }
 
-    .log {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px;
-        font-weight: bold;
+    .sticky {
+        position: sticky;
+        top: 30px;
     }
 </style>
