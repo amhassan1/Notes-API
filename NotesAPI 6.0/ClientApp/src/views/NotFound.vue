@@ -3,7 +3,7 @@
         <div class="note edu" id="first">
             <p id="text">
                 <span class="not_found">404: Page Not Found</span>Go Back to
-                <router-link to="/notes" class="link">Notes</router-link>
+                <router-link to="/" class="link">Home</router-link>
             </p>
         </div>
         <div class="note edu" id="second">
